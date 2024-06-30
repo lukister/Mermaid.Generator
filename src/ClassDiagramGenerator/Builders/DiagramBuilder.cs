@@ -15,6 +15,7 @@ internal class DiagramBuilder : IDiagramBuilder
     public string Build()
     {
         var builder = new StringBuilder();
+        builder.AppendLine("classDiagram");
         foreach (var type in _types)
         {
             builder.WriteClass(type);
