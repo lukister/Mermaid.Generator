@@ -36,6 +36,9 @@ internal class DiagramBuilder : IDiagramBuilder
                 case RelationType.Inheritance:
                     WriteInheritanceRelations(builder);
                     break;
+                case RelationType.Dependency:
+                    WriteDependenciesRelations(builder);
+                    break;
             }
         }
         return builder.ToString();
@@ -66,7 +69,8 @@ internal class DiagramBuilder : IDiagramBuilder
                     .ToList();
 
                 var intersecTypes = _types.Intersect(parameters);
-                //TODO write dependencies
+                foreach(var intersecType in intersecTypes)
+                    builder.AppendLine($"\t{type.Name} ..> {intersecType.Name}");
             }
         }
     }
