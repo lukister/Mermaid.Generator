@@ -15,7 +15,7 @@ public class BaseDiagramGenerationTests
     public void GivenDefaultBuilder_WhenOneClassAdded_ThenDiagramIsNotEmpty()
     {
         string builder = DiagramFactory.CreateBuilder()
-            .AddClass(typeof(Class1))
+            .AddClass<Class1>()
             .Build();
 
         _testOutput.WriteLine(builder);
@@ -27,7 +27,7 @@ public class BaseDiagramGenerationTests
     public void GivenDefaultBuilder_WhenOneClassAdded_ThenClassNameIsOnDiagram()
     {
         string builder = DiagramFactory.CreateBuilder()
-            .AddClass(typeof(Class1))
+            .AddClass<Class1>()
             .Build();
 
         _testOutput.WriteLine(builder);
@@ -39,7 +39,7 @@ public class BaseDiagramGenerationTests
     public void GivenDefaultBuilder_WhenClassHasProperty_ThenPropertyNameIsIncludedInDiagram()
     {
         string builder = DiagramFactory.CreateBuilder()
-            .AddClass(typeof(Class1))
+            .AddClass<Class1>()
             .Build();
 
         _testOutput.WriteLine(builder);
@@ -51,7 +51,7 @@ public class BaseDiagramGenerationTests
     public void GivenDefaultBuilder_WhenClassHasMethod_ThenMethodNameIsIncludedInDiagram()
     {
         string builder = DiagramFactory.CreateBuilder()
-            .AddClass(typeof(Class1))
+            .AddClass<Class1>()
             .Build();
 
         _testOutput.WriteLine(builder);
@@ -63,7 +63,7 @@ public class BaseDiagramGenerationTests
     public void GivenDefaultBuilder_WhenClassAdedTodiagram_ThenDefaultMethodsAreNotOnDiagram()
     {
         string builder = DiagramFactory.CreateBuilder()
-            .AddClass(typeof(Class1))
+            .AddClass<Class1>()
             .Build();
 
         _testOutput.WriteLine(builder);

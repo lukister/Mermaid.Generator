@@ -15,9 +15,9 @@ public class InheritanceRelationDiagramGenerationTests
     public void GivenClassDigramWithInheritation_WhenClassesWithInheritationAdded_ThenRelationExists()
     {
         string builder = DiagramFactory.CreateBuilder()
-            .AddClass(typeof(ClassA))
-            .AddClass(typeof(ClassB))
-            .AddClass(typeof(ClassC))
+            .AddClass<ClassA>()
+            .AddClass<ClassB>()
+            .AddClass<ClassC>()
             .IncludeRelation(RelationType.Inheritance)
             .Build();
 
@@ -30,10 +30,11 @@ public class InheritanceRelationDiagramGenerationTests
     public void GivenClassDigramWithDependencies_WhenClassesWithInheritationAdded_ThenRelationNotExists()
     {
         string builder = DiagramFactory.CreateBuilder()
-            .AddClass(typeof(ClassA))
-            .AddClass(typeof(ClassB))
-            .AddClass(typeof(ClassC))
+            .AddClass<ClassA>()
+            .AddClass<ClassB>()
+            .AddClass<ClassC>()
             .IncludeRelation(RelationType.Dependency)
+            .IncludeRelation(RelationType.Inheritance)
             .Build();
 
         _testOutput.WriteLine(builder);
@@ -41,12 +42,15 @@ public class InheritanceRelationDiagramGenerationTests
         Assert.DoesNotContain("ClassA <|-- ClassB", builder);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     [Fact]
     public void GivenClassDigramWithInheritance_WhenClassesWithDependenciesAdded_ThenRelationNotExists()
     {
         string builder = DiagramFactory.CreateBuilder()
-            .AddClass(typeof(ClassA))
-            .AddClass(typeof(ClassC))
+            .AddClass<ClassA>()
+            .AddClass<ClassC>()
             .IncludeRelation(RelationType.Inheritance)
             .Build();
 

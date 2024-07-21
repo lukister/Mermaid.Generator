@@ -15,9 +15,9 @@ public class DependencyRelationDiagramGenerationTests
     public void GivenClassDigramWithDependency_WhenClassesWithDependenciesAdded_ThenRelationExists()
     {
         string builder = DiagramFactory.CreateBuilder()
-            .AddClass(typeof(ClassA))
-            .AddClass(typeof(ClassB))
-            .AddClass(typeof(ClassC))
+            .AddClass<ClassA>()
+            .AddClass<ClassB>()
+            .AddClass<ClassC>()
             .IncludeRelation(RelationType.Dependency)
             .Build();
 
@@ -30,9 +30,9 @@ public class DependencyRelationDiagramGenerationTests
     public void GivenClassDigramWithInheritance_WhenClassesWithDependenciesAdded_ThenRelationNotExists()
     {
         string builder = DiagramFactory.CreateBuilder()
-            .AddClass(typeof(ClassA))
-            .AddClass(typeof(ClassB))
-            .AddClass(typeof(ClassC))
+            .AddClass<ClassA>()
+            .AddClass<ClassB>()
+            .AddClass<ClassC>()
             .IncludeRelation(RelationType.Inheritance)
             .Build();
 
@@ -45,8 +45,8 @@ public class DependencyRelationDiagramGenerationTests
     public void GivenClassDigramWithDependencies_WhenClassesWithInheritanceAdded_ThenRelationNotExists()
     {
         string builder = DiagramFactory.CreateBuilder()
-            .AddClass(typeof(ClassA))
-            .AddClass(typeof(ClassB))
+            .AddClass<ClassA>()
+            .AddClass<ClassB>()
             .IncludeRelation(RelationType.Dependency)
             .Build();
 
