@@ -42,9 +42,6 @@ public class InheritanceRelationDiagramGenerationTests
         Assert.DoesNotContain("ClassA <|-- ClassB", builder);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     [Fact]
     public void GivenClassDigramWithInheritance_WhenClassesWithDependenciesAdded_ThenRelationNotExists()
     {
